@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:jms="http://www.springframework.org/schema/jms"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:osgi="http://www.springframework.org/schema/osgi"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
+          http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+          http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms.xsd
+          http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd
+          http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi-1.2.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+">
+<context:annotation-config/>
+    <context:component-scan base-package="com.javarevolutions"/>
+   
+    <bean id="dataSource" class="org.springframework.jdbc.datriver asource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+	<property name="url" value="jdbc:postgresql://localhost:5432/catastro"/> 
+	<property name="username" value="postgres"/>
+	<property name="password" value="12345678"/>
+    </bean>
+    
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+          <ref bean="dataSource"/>
+        </property>
+
+        <property name="hibernateProperties">
+           <props>
+             <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+             <prop key="hibernate.show_sql">true</prop>
+           </props>
+         </property>
+
+        <property name="mappingResources">
+           <list>
+               <value>com/catastro/entities/Domiciliofiscal.hbm.xml</value>
+               <value>com/catastro/entities/Ubigeo.hbm.xml</value>
+               <value>com/catastro/entities/Certificadorficha.hbm.xml</value>
+               <value>com/catastro/entities/Fichacatastral.hbm.xml</value>
+               <value>com/catastro/entities/Titular.hbm.xml</value>
+               <value>com/catastro/entities/Construcciones.hbm.xml</value>
+               <value>com/catastro/entities/Incrprediocatastral.hbm.xml</value>
+               <value>com/catastro/entities/Documento.hbm.xml</value>
+               <value>com/catastro/entities/Litigantes.hbm.xml</value>
+               <value>com/catastro/entities/Obrascomplotrasinstalaciones.hbm.xml</value>
+               <value>com/catastro/entities/Detallefichaindividual.hbm.xml</value>
+               <value>com/catastro/entities/Contenedor.hbm.xml</value>
+               <value>com/catastro/entities/Serviciosbasicos.hbm.xml</value>
+               <value>com/catastro/entities/Fichaindividual.hbm.xml</value>
+           </list>
+          
+        </property>
+    </bean>
+    
+    <!-- DAOS 
+    <bean id="loginDAO" class="com.javarevolutions.jdbc.dao.ImplLogin">
+   	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="alumnoDAO" class="com.javarevolutions.jdbc.dao.ImplAlumno">
+   	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="articuloDAO" class="com.javarevolutions.jdbc.dao.ImplArticulo">
+   	<property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    -->
+    <!-- BOS 
+    <bean id="loginBO" class="com.javarevolutions.jhs.bo.LoginImplBO">
+        <property name="loginDAO" ref="loginDAO"></property>
+    </bean>
+    <bean id="alumnoBO" class="com.javarevolutions.jhs.bo.AlumnoImplBO">
+        <property name="alumnoDAO" ref="alumnoDAO"></property>
+    </bean>
+    <bean id="articuloBO" class="com.javarevolutions.jhs.bo.ArticuloImplBO">
+        <property name="articuloDAO" ref="articuloDAO"></property>
+    </bean>-->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+</beans>

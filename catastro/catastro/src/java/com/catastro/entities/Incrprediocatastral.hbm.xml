@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Incrprediocatastral" table="incrprediocatastral" schema="public">
+        <id name="idincrprediocatastral" type="long">
+            <column name="idincrprediocatastral" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichaindividual" class="com.catastro.entities.Fichaindividual" fetch="select">
+            <column name="id_ficha_individual" />
+        </many-to-one>
+        <property name="numero" type="string">
+            <column name="numero" length="12" />
+        </property>
+        <property name="fojas" type="string">
+            <column name="fojas" length="12" />
+        </property>
+        <property name="asiento" type="java.lang.Integer">
+            <column name="asiento" />
+        </property>
+        <property name="fechaincrippredio" type="date">
+            <column name="fechaincrippredio" length="13" />
+        </property>
+        <property name="asincfabrica" type="java.lang.Integer">
+            <column name="asincfabrica" />
+        </property>
+        <property name="fechaincfabrica" type="date">
+            <column name="fechaincfabrica" length="13" />
+        </property>
+        <property name="tipopartidaregistral" type="java.lang.Integer">
+            <column name="tipopartidaregistral" />
+        </property>
+        <property name="declaratoriafabrica" type="java.lang.Integer">
+            <column name="declaratoriafabrica" />
+        </property>
+    </class>
+</hibernate-mapping>

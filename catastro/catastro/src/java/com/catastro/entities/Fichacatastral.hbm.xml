@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Fichacatastral" table="fichacatastral" schema="public">
+        <id name="idfichacatastral" type="long">
+            <column name="idfichacatastral" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="titular" class="com.catastro.entities.Titular" fetch="select">
+            <column name="id_personas" />
+        </many-to-one>
+        <property name="nroficha" type="string">
+            <column name="nroficha" length="6" />
+        </property>
+        <property name="cuc" type="string">
+            <column name="cuc" length="12" />
+        </property>
+        <property name="codigohojacatastral" type="string">
+            <column name="codigohojacatastral" length="10" />
+        </property>
+        <property name="nroregistro" type="string">
+            <column name="nroregistro" length="12" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="400" />
+        </property>
+        <set name="contenedors" table="contenedor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_fichacatastral" />
+            </key>
+            <one-to-many class="com.catastro.entities.Contenedor" />
+        </set>
+        <set name="fichaindividuals" table="fichaindividual" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_fichacatastral" />
+            </key>
+            <one-to-many class="com.catastro.entities.Fichaindividual" />
+        </set>
+        <set name="certificadorfichas" table="certificadorficha" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_fichacatastral" />
+            </key>
+            <one-to-many class="com.catastro.entities.Certificadorficha" />
+        </set>
+    </class>
+</hibernate-mapping>

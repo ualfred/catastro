@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="catastro" match-schema="public"/>
+  <table-filter match-name="certificadorficha"/>
+  <table-filter match-name="fichacatastral"/>
+  <table-filter match-name="domiciliofiscal"/>
+  <table-filter match-name="obrascomplotrasinstalaciones"/>
+  <table-filter match-name="incrprediocatastral"/>
+  <table-filter match-name="construcciones"/>
+  <table-filter match-name="contenedor"/>
+  <table-filter match-name="serviciosbasicos"/>
+  <table-filter match-name="fichaindividual"/>
+  <table-filter match-name="documento"/>
+  <table-filter match-name="litigantes"/>
+  <table-filter match-name="detallefichaindividual"/>
+  <table-filter match-name="titular"/>
+  <table-filter match-name="ubigeo"/>
+</hibernate-reverse-engineering>

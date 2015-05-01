@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Detallefichaindividual" table="detallefichaindividual" schema="public">
+        <id name="iddetallefichaindividual" type="long">
+            <column name="iddetallefichaindividual" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichaindividual" class="com.catastro.entities.Fichaindividual" fetch="select">
+            <column name="id_ifcha_individual" />
+        </many-to-one>
+        <property name="nroresolexoneracion" type="string">
+            <column name="nroresolexoneracion" length="12" />
+        </property>
+        <property name="nroboletpensionista" type="string">
+            <column name="nroboletpensionista" length="12" />
+        </property>
+        <property name="fechainicioexoneracion" type="date">
+            <column name="fechainicioexoneracion" length="13" />
+        </property>
+        <property name="fechavencimiento" type="date">
+            <column name="fechavencimiento" length="13" />
+        </property>
+        <property name="codigouso" type="string">
+            <column name="codigouso" length="6" />
+        </property>
+        <property name="descripcionuso" type="string">
+            <column name="descripcionuso" length="200" />
+        </property>
+        <property name="estructuracion" type="string">
+            <column name="estructuracion" length="12" />
+        </property>
+        <property name="zonificacion" type="string">
+            <column name="zonificacion" length="15" />
+        </property>
+        <property name="areaterrtitulo" type="java.lang.Double">
+            <column name="areaterrtitulo" precision="17" scale="17" />
+        </property>
+        <property name="areaterrdeclarada" type="java.lang.Double">
+            <column name="areaterrdeclarada" precision="17" scale="17" />
+        </property>
+        <property name="areaterrverificada" type="java.lang.Double">
+            <column name="areaterrverificada" precision="17" scale="17" />
+        </property>
+        <property name="nrohabitantes" type="string">
+            <column name="nrohabitantes" length="6" />
+        </property>
+        <property name="nrofamilias" type="string">
+            <column name="nrofamilias" length="6" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="200" />
+        </property>
+        <property name="clasificacionpredio" type="java.lang.Integer">
+            <column name="clasificacionpredio" />
+        </property>
+        <property name="prediocatastraln" type="java.lang.Integer">
+            <column name="prediocatastraln" />
+        </property>
+    </class>
+</hibernate-mapping>

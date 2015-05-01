@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Ubigeo" table="ubigeo" schema="public">
+        <id name="idubigeo" type="long">
+            <column name="idubigeo" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreDepartamento" type="string">
+            <column name="nombre_departamento" length="50" />
+        </property>
+        <property name="nombreProvincia" type="string">
+            <column name="nombre_provincia" length="50" />
+        </property>
+        <property name="nombreDistrito" type="string">
+            <column name="nombre_distrito" length="50" />
+        </property>
+        <property name="codigoDepartamento" type="java.lang.Integer">
+            <column name="codigo_departamento" />
+        </property>
+        <property name="codigoProvincia" type="java.lang.Integer">
+            <column name="codigo_provincia" />
+        </property>
+        <property name="codigoDistrito" type="java.lang.Integer">
+            <column name="codigo_distrito" />
+        </property>
+        <set name="domiciliofiscals" table="domiciliofiscal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ubigeo" />
+            </key>
+            <one-to-many class="com.catastro.entities.Domiciliofiscal" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/catastro</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">12345678</property>
+    <mapping resource="com/catastro/entities/Fichacatastral.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Litigantes.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Fichaindividual.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Ubigeo.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Incrprediocatastral.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Documento.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Obrascomplotrasinstalaciones.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Titular.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Certificadorficha.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Serviciosbasicos.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Construcciones.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Detallefichaindividual.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Contenedor.hbm.xml"/>
+    <mapping resource="com/catastro/entities/Domiciliofiscal.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

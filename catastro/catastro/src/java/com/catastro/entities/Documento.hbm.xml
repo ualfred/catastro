@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Documento" table="documento" schema="public">
+        <id name="iddocumento" type="long">
+            <column name="iddocumento" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichaindividual" class="com.catastro.entities.Fichaindividual" fetch="select">
+            <column name="id_ficha_individual" />
+        </many-to-one>
+        <property name="nrodocumentos" type="string">
+            <column name="nrodocumentos" length="12" />
+        </property>
+        <property name="fechadocumento" type="date">
+            <column name="fechadocumento" length="13" />
+        </property>
+        <property name="areaautorizada" type="java.lang.Double">
+            <column name="areaautorizada" precision="17" scale="17" />
+        </property>
+        <property name="nombrenotaria" type="string">
+            <column name="nombrenotaria" length="120" />
+        </property>
+        <property name="kardex" type="java.lang.Integer">
+            <column name="kardex" />
+        </property>
+        <property name="fechaescriturapublica" type="date">
+            <column name="fechaescriturapublica" length="13" />
+        </property>
+        <property name="tiposdocumentos" type="java.lang.Long">
+            <column name="tiposdocumentos" />
+        </property>
+    </class>
+</hibernate-mapping>

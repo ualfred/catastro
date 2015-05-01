@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Fichaindividual" table="fichaindividual" schema="public">
+        <id name="idfichaIndividual" type="long">
+            <column name="idficha_individual" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichacatastral" class="com.catastro.entities.Fichacatastral" fetch="select">
+            <column name="id_fichacatastral" />
+        </many-to-one>
+        <property name="nrofichaLote" type="string">
+            <column name="nroficha_lote" length="4" />
+        </property>
+        <property name="codcontribrentas" type="string">
+            <column name="codcontribrentas" length="12" />
+        </property>
+        <property name="codpredrentas" type="string">
+            <column name="codpredrentas" length="12" />
+        </property>
+        <property name="unidacumcodpredrentas" type="string">
+            <column name="unidacumcodpredrentas" length="12" />
+        </property>
+        <property name="condtitular" type="java.lang.Integer">
+            <column name="condtitular" />
+        </property>
+        <property name="formaadquesicion" type="java.lang.Integer">
+            <column name="formaadquesicion" />
+        </property>
+        <property name="fechaadquesicion" type="date">
+            <column name="fechaadquesicion" length="13" />
+        </property>
+        <property name="condespecialpredio" type="java.lang.Integer">
+            <column name="condespecialpredio" />
+        </property>
+        <property name="nroresolucexoneracion" type="java.lang.Integer">
+            <column name="nroresolucexoneracion" />
+        </property>
+        <property name="porcentaje" type="java.lang.Double">
+            <column name="porcentaje" precision="17" scale="17" />
+        </property>
+        <property name="fichainicio" type="date">
+            <column name="fichainicio" length="13" />
+        </property>
+        <property name="fechavencimiento" type="date">
+            <column name="fechavencimiento" length="13" />
+        </property>
+        <property name="evaluacionprediocatastral" type="java.lang.Long">
+            <column name="evaluacionprediocatastral" />
+        </property>
+        <property name="atiLotecolindante" type="java.lang.Double">
+            <column name="ati_lotecolindante" precision="17" scale="17" />
+        </property>
+        <property name="atiJardinaislamineto" type="java.lang.Double">
+            <column name="ati_jardinaislamineto" precision="17" scale="17" />
+        </property>
+        <property name="atiArepublica" type="java.lang.Double">
+            <column name="ati_arepublica" precision="17" scale="17" />
+        </property>
+        <property name="atiAreaintangible" type="java.lang.Double">
+            <column name="ati_areaintangible" precision="17" scale="17" />
+        </property>
+        <property name="condiciondeclarante" type="java.lang.Long">
+            <column name="condiciondeclarante" />
+        </property>
+        <property name="estadollenadofichas" type="java.lang.Long">
+            <column name="estadollenadofichas" />
+        </property>
+        <property name="nrofamilias" type="java.lang.Long">
+            <column name="nrofamilias" />
+        </property>
+        <property name="nrohabitantes" type="java.lang.Long">
+            <column name="nrohabitantes" />
+        </property>
+        <property name="mantenimiento" type="java.lang.Long">
+            <column name="mantenimiento" />
+        </property>
+        <set name="obrascomplotrasinstalacioneses" table="obrascomplotrasinstalaciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ficha_individual" />
+            </key>
+            <one-to-many class="com.catastro.entities.Obrascomplotrasinstalaciones" />
+        </set>
+        <set name="incrprediocatastrals" table="incrprediocatastral" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ficha_individual" />
+            </key>
+            <one-to-many class="com.catastro.entities.Incrprediocatastral" />
+        </set>
+        <set name="construccioneses" table="construcciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ficha_individual" />
+            </key>
+            <one-to-many class="com.catastro.entities.Construcciones" />
+        </set>
+        <set name="detallefichaindividuals" table="detallefichaindividual" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ifcha_individual" />
+            </key>
+            <one-to-many class="com.catastro.entities.Detallefichaindividual" />
+        </set>
+        <set name="litiganteses" table="litigantes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_fichaindividual" />
+            </key>
+            <one-to-many class="com.catastro.entities.Litigantes" />
+        </set>
+        <set name="serviciosbasicoses" table="serviciosbasicos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ficha_individual" />
+            </key>
+            <one-to-many class="com.catastro.entities.Serviciosbasicos" />
+        </set>
+        <set name="domiciliofiscals" table="domiciliofiscal" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ficha_individual" />
+            </key>
+            <one-to-many class="com.catastro.entities.Domiciliofiscal" />
+        </set>
+        <set name="documentos" table="documento" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ficha_individual" />
+            </key>
+            <one-to-many class="com.catastro.entities.Documento" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Litigantes" table="litigantes" schema="public">
+        <id name="idlitigantes" type="long">
+            <column name="idlitigantes" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichaindividual" class="com.catastro.entities.Fichaindividual" fetch="select">
+            <column name="id_fichaindividual" />
+        </many-to-one>
+        <property name="nrodocumento" type="string">
+            <column name="nrodocumento" length="12" />
+        </property>
+        <property name="codigocontribuyente" type="string">
+            <column name="codigocontribuyente" length="30" />
+        </property>
+        <property name="tipodocumento" type="string">
+            <column name="tipodocumento" length="60" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="200" />
+        </property>
+        <property name="nombres" type="string">
+            <column name="nombres" length="120" />
+        </property>
+    </class>
+</hibernate-mapping>

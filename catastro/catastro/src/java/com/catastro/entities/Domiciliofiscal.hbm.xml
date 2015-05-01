@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Domiciliofiscal" table="domiciliofiscal" schema="public">
+        <id name="iddomiciliofiscal" type="long">
+            <column name="iddomiciliofiscal" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ubigeo" class="com.catastro.entities.Ubigeo" fetch="select">
+            <column name="id_ubigeo" />
+        </many-to-one>
+        <many-to-one name="fichaindividual" class="com.catastro.entities.Fichaindividual" fetch="select">
+            <column name="id_ficha_individual" />
+        </many-to-one>
+        <property name="telefono" type="string">
+            <column name="telefono" length="12" />
+        </property>
+        <property name="anexo" type="string">
+            <column name="anexo" length="12" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="15" />
+        </property>
+        <property name="correoelectronico" type="string">
+            <column name="correoelectronico" length="50" />
+        </property>
+        <property name="codigovia" type="string">
+            <column name="codigovia" length="6" />
+        </property>
+        <property name="nromunicipal" type="string">
+            <column name="nromunicipal" length="12" />
+        </property>
+        <property name="nombreedificacion" type="string">
+            <column name="nombreedificacion" length="50" />
+        </property>
+        <property name="nrointeriores" type="java.lang.Integer">
+            <column name="nrointeriores" />
+        </property>
+        <property name="codigohu" type="string">
+            <column name="codigohu" length="6" />
+        </property>
+        <property name="nombrehabilitacionurbana" type="string">
+            <column name="nombrehabilitacionurbana" length="60" />
+        </property>
+        <property name="zonasectoretapa" type="string">
+            <column name="zonasectoretapa" length="30" />
+        </property>
+        <property name="manzana" type="string">
+            <column name="manzana" length="40" />
+        </property>
+        <property name="lote" type="string">
+            <column name="lote" length="6" />
+        </property>
+        <property name="sublote" type="string">
+            <column name="sublote" length="6" />
+        </property>
+        <property name="tipovia" type="java.lang.Long">
+            <column name="tipovia" />
+        </property>
+    </class>
+</hibernate-mapping>

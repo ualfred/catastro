@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Certificadorficha" table="certificadorficha" schema="public">
+        <id name="idcertificadorficha" type="long">
+            <column name="idcertificadorficha" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichacatastral" class="com.catastro.entities.Fichacatastral" fetch="select">
+            <column name="id_fichacatastral" />
+        </many-to-one>
+        <property name="tipovinculo" type="string">
+            <column name="tipovinculo" length="40" />
+        </property>
+        <property name="dni" type="string">
+            <column name="dni" length="8" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="120" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="120" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="13" />
+        </property>
+        <property name="nroregistro" type="string">
+            <column name="nroregistro" length="12" />
+        </property>
+    </class>
+</hibernate-mapping>

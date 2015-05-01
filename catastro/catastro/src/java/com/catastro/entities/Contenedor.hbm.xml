@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Contenedor" table="contenedor" schema="public">
+        <id name="idcontenedor" type="long">
+            <column name="idcontenedor" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichacatastral" class="com.catastro.entities.Fichacatastral" fetch="select">
+            <column name="id_fichacatastral" />
+        </many-to-one>
+        <property name="codigo" type="java.lang.Integer">
+            <column name="codigo" />
+        </property>
+        <property name="subcodigo" type="java.lang.Integer">
+            <column name="subcodigo" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="nombre" length="180" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="200" />
+        </property>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="estado" />
+        </property>
+    </class>
+</hibernate-mapping>

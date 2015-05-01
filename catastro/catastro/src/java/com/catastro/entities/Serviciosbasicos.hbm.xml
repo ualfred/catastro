@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Serviciosbasicos" table="serviciosbasicos" schema="public">
+        <id name="idserviciosbasicos" type="int">
+            <column name="idserviciosbasicos" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichaindividual" class="com.catastro.entities.Fichaindividual" fetch="select">
+            <column name="id_ficha_individual" />
+        </many-to-one>
+        <property name="luz" type="string">
+            <column name="luz" length="20" />
+        </property>
+        <property name="agua" type="string">
+            <column name="agua" length="20" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="12" />
+        </property>
+        <property name="desague" type="string">
+            <column name="desague" length="8" />
+        </property>
+        <property name="nrosumluz" type="string">
+            <column name="nrosumluz" length="12" />
+        </property>
+        <property name="nrocontratoagua" type="string">
+            <column name="nrocontratoagua" length="12" />
+        </property>
+        <property name="nrotelefono" type="string">
+            <column name="nrotelefono" length="12" />
+        </property>
+    </class>
+</hibernate-mapping>

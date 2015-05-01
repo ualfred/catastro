@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Construcciones" table="construcciones" schema="public">
+        <id name="idconstrucciones" type="long">
+            <column name="idconstrucciones" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichaindividual" class="com.catastro.entities.Fichaindividual" fetch="select">
+            <column name="id_ficha_individual" />
+        </many-to-one>
+        <property name="nropisosotanomezz" type="string">
+            <column name="nropisosotanomezz" length="4" />
+        </property>
+        <property name="fechaconstruccion" type="date">
+            <column name="fechaconstruccion" length="13" />
+        </property>
+        <property name="muroColumnas" type="string">
+            <column name="muro_columnas" length="30" />
+        </property>
+        <property name="techo" type="string">
+            <column name="techo" length="60" />
+        </property>
+        <property name="piso" type="string">
+            <column name="piso" length="60" />
+        </property>
+        <property name="revistimiento" type="string">
+            <column name="revistimiento" length="60" />
+        </property>
+        <property name="banios" type="string">
+            <column name="banios" length="80" />
+        </property>
+        <property name="instelectricsanitaria" type="string">
+            <column name="instelectricsanitaria" length="60" />
+        </property>
+        <property name="contruccionesdeclaradas" type="java.lang.Double">
+            <column name="contruccionesdeclaradas" precision="17" scale="17" />
+        </property>
+        <property name="construccionverificada" type="java.lang.Double">
+            <column name="construccionverificada" precision="17" scale="17" />
+        </property>
+        <property name="uca" type="java.lang.Long">
+            <column name="uca" />
+        </property>
+        <property name="porcentbiencomunlegalterreno" type="java.lang.Double">
+            <column name="porcentbiencomunlegalterreno" precision="17" scale="17" />
+        </property>
+        <property name="porcentbiencomunlegalconstruccion" type="java.lang.Double">
+            <column name="porcentbiencomunlegalconstruccion" precision="17" scale="17" />
+        </property>
+        <property name="porcentbiencomunfisicoterreno" type="java.lang.Double">
+            <column name="porcentbiencomunfisicoterreno" precision="17" scale="17" />
+        </property>
+        <property name="porcentbiencomunfisicoconstruccion" type="java.lang.Double">
+            <column name="porcentbiencomunfisicoconstruccion" precision="17" scale="17" />
+        </property>
+        <property name="mep" type="java.lang.Long">
+            <column name="mep" />
+        </property>
+        <property name="ecs" type="java.lang.Long">
+            <column name="ecs" />
+        </property>
+        <property name="ecc" type="java.lang.Long">
+            <column name="ecc" />
+        </property>
+    </class>
+</hibernate-mapping>

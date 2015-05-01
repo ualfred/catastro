@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 29-abr-2015 22:21:03 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="com.catastro.entities.Obrascomplotrasinstalaciones" table="obrascomplotrasinstalaciones" schema="public">
+        <id name="idobrascomplotasinstalaciones" type="long">
+            <column name="idobrascomplotasinstalaciones" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="fichaindividual" class="com.catastro.entities.Fichaindividual" fetch="select">
+            <column name="id_ficha_individual" />
+        </many-to-one>
+        <property name="codigo" type="java.lang.Integer">
+            <column name="codigo" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="120" />
+        </property>
+        <property name="fechacont" type="date">
+            <column name="fechacont" length="13" />
+        </property>
+        <property name="dimveriflargo" type="java.lang.Double">
+            <column name="dimveriflargo" precision="17" scale="17" />
+        </property>
+        <property name="dimverifancho" type="java.lang.Double">
+            <column name="dimverifancho" precision="17" scale="17" />
+        </property>
+        <property name="dimverifalto" type="java.lang.Double">
+            <column name="dimverifalto" precision="17" scale="17" />
+        </property>
+        <property name="dimverifproductototal" type="java.lang.Double">
+            <column name="dimverifproductototal" precision="17" scale="17" />
+        </property>
+        <property name="uca" type="java.lang.Double">
+            <column name="uca" precision="17" scale="17" />
+        </property>
+    </class>
+</hibernate-mapping>
